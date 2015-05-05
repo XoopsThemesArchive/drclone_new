@@ -1,0 +1,346 @@
+<{php}>
+if( ! empty( $_SESSION['redirect_message'] ) ) {
+	if( empty( $this->_tpl_vars['xoops_lblocks'] ) ) $this->_tpl_vars['xoops_lblocks'] = array() ;
+	array_unshift( $this->_tpl_vars['xoops_lblocks'] , array( 'title' => 'Mensaje' , 'content' => $_SESSION['redirect_message'] , 'weight' => 0 ) ) ;
+	$this->_tpl_vars['xoops_showlblock'] = 1 ;
+	unset( $_SESSION['redirect_message'] ) ;
+}
+
+// compression
+$c = ini_get( 'zlib.output_compression' );
+if( empty($c) ):
+  ini_set( 'zlib.output_compression', '1' );
+  ini_set( 'zlib.output_compression_level', '9' ); /* levels, I think
+    are between 0 (no compression) - 9 (maximum compression).
+    Meanwhile there's the '-1', which I think is the default
+    compression level, whichever that is! */
+endif;
+<{/php}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="robots" content="<{$meta_robots}>" />
+<meta name="keywords" content="<{$meta_keywords}>" />
+<meta name="description" content="<{$meta_description}>" />
+<meta name="rating" content="<{$meta_rating}>" />
+<meta name="author" content="<{$meta_author}>" />
+<meta name="copyright" content="<{$meta_copyright}>" />
+<meta name="generator" content="XOOPS" />
+<title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_url}>/themes/drclone_new/css/style.css" />
+<link rel="alternate" type="application/xml" title="RSS" href="<{$xoops_url}>/backend.php" />
+
+<!-- RMV: added module header -->
+<{$xoops_module_header}>
+
+
+<script language="JavaScript">
+<!--
+
+function SymError()
+{
+  return true;
+}
+
+window.onerror = SymError;
+
+var SymRealWinOpen = window.open;
+
+function SymWinOpen(url, name, attributes)
+{
+  return (new Object());
+}
+
+window.open = SymWinOpen;
+
+//-->
+</script>
+
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+
+<!-- *** SCRIPT NIEVE ***
+<script type="text/javascript" src="<{$xoops_url}>/themes/<{$xoops_theme}>/navidad/scripts/snowstorm.js"></script>
+// -->
+
+<!-- Add search to mozilla browsers script start -->
+<script>
+function addEngine()
+{
+    if ((typeof window.sidebar == "object") &&
+      (typeof window.sidebar.addSearchEngine == "function"))
+    {
+        window.sidebar.addSearchEngine(
+            "<{$xoops_url}>/../uploads/drclone.src",
+            "<{$xoops_url}>/../images/drclone.gif",
+            "Dr. Clone Web",
+            "Web" );
+    }
+    else
+    {
+        alert("Attention, ce navigateur n'est pas compatible avec cet fonction de recherche, seulement avec Mozilla M15 y supérieurs et avec Firefox 1.0");
+    }
+}
+</script>
+<!-- Add search to mozilla browsers script end -->
+
+<!-- Hide/show columns script start -->
+<script type="text/javascript">
+var getById = (typeof document.getElementById != "undefined");function toggleDisplay(obj,display1,display2){	if(!getById) return;
+obj = getRef(obj);
+if(obj.style.display == display2)
+obj.style.display = display1;
+else
+obj.style.display = display2;
+repaintFix();}function getRef(obj){
+if(getById)
+return(typeof obj == "string") ? document.getElementById(obj) : obj;}function repaintFix(obj){
+if("undefined" == typeof document.body	  || "undefined" == typeof document.body.style) return;
+if(obj == null)
+obj == document.body;
+else obj = getRef(obj);
+document.body.style.visibility = "hidden";
+document.body.style.visibility = "visible";
+}
+</script>
+<!-- Hide/show columns script end -->
+
+<!-- Add search to mozilla browsers script start -->
+<script type="text/javascript">
+function agregar(){
+   if (navigator.appName=="Microsoft Internet Explorer") {
+      var url="../../";
+      var titulo="Dr. Clone Web - Ayuda y soporte para Xoops";
+      window.external.AddFavorite(url,titulo);
+   }
+   else {
+      if(navigator.appName == "Netscape")
+         alert ("Appuies sur Crtl+D pour ajouter ce site à tes favoris");
+   }
+}
+</script>
+<!-- Add search to mozilla browsers script end -->
+
+<!-- Progress bar script start -->
+<script type="text/javascript" src="<{$xoops_url}>../<{$xoops_theme}>../../js/xp_progress.js">
+/***********************************************
+* WinXP Progress Bar- By Brian Gosselin- http://www.scriptasylum.com/
+* Script featured on Dynamic Drive- http://www.dynamicdrive.com
+* Please keep this notice intact
+***********************************************/
+</script>
+<!-- Progress bar script end -->
+
+<!-- Hide/show notifications script start -->
+<script type="text/javascript">
+function show(obj) {
+  eval("document.all." + obj + ".style.display='block'");
+}
+function clearIt(obj) {
+  eval("document.all." + obj + ".style.display='none'");
+}
+</script>
+<!-- Hide/show notifications script start -->
+
+<!-- Random logo script start -->
+<script type="text/javascript">
+
+var theImages = new Array()
+
+theImages[0] = '<{$xoops_url}>/themes/<{$xoops_theme}>/images/logo.gif'
+theImages[1] = '<{$xoops_url}>/themes/<{$xoops_theme}>/images/logo1.gif'
+theImages[2] = '<{$xoops_url}>/themes/<{$xoops_theme}>/images/logo2.gif'
+theImages[3] = '<{$xoops_url}>/themes/<{$xoops_theme}>/images/logo3.gif'
+theImages[4] = '<{$xoops_url}>/themes/<{$xoops_theme}>/images/logo4.gif'
+
+var j = 0
+var p = theImages.length;
+var preBuffer = new Array()
+for (i = 0; i < p; i++){
+   preBuffer[i] = new Image()
+   preBuffer[i].src = theImages[i]
+}
+var whichImage = Math.round(Math.random()*(p-1));
+function showImage(){
+document.write('<img src="'+theImages[whichImage]+'">');
+}
+</script>
+<!-- Random logo script end -->
+
+<!-- Extended tooltips script start -->
+<link rel="stylesheet" href="<{$xoops_url}>/themes/<{$xoops_theme}>/js/tooltip.css" type="text/css" />
+<script type="text/javascript" src="<{$xoops_url}>/themes/<{$xoops_theme}>/js/tooltip.js"></script>
+<!-- Extended tooltips script end -->
+</head>
+<body>
+
+
+<!-- Start loading script header -->
+<!-- Desactivado por prueba de módulo
+<div id="waitDiv" style="position:absolute; left:35%; top:50%; visibility:hidden; text-align: center; width: 310px;">
+<table cellspacing="5" style="padding-top: 5px; padding-bottom: 0px; background: #272727; border: 1px solid; color: silver; width: 310px;">
+<tr>
+<td align="center" valign="middle" style="color: #707070">
+<script type="text/javascript">
+var bar1= createBar(300,15,'#272727',1,'#707070','#D0A700',85,15,3,"");
+</script>
+<b>Cargando, espere por favor...</b>
+</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript">
+var DHTML = (document.getElementById || document.all || document.layers);
+function ap_getObj(name) { if (document.getElementById) { return document.getElementById(name).style; } else if (document.all) { return document.all[name].style;
+} else if (document.layers) { return document.layers[name]; } } function ap_showWaitMessage(div,flag)  { if (!DHTML) return; var x = ap_getObj(div); x.visibility = (flag) ? 'visible':'hidden'
+if(! document.getElementById) if(document.layers) x.left=280/2; return true; } ap_showWaitMessage('waitDiv', 1);
+</script> -->
+<!-- End loading script header -->
+
+
+<div id="logo">
+ <table>
+  <tr>
+  	<td align="left"><script type="text/javascript">showImage();</script></td>
+    <td align="right"><img src="<{$xoops_url}>/themes/<{$xoops_theme}>/images/spacer.gif" title="Si vous voulez mettre votre publicité ici, contactez l'administrateur du site." alt="Si vous voulez mettre votre publicité ici, contactez l'administrateur du site." align="middle" /><br /><{$xoops_banner}></td>
+  </tr>
+ </table>
+</div>
+<div id="nav">
+ <table>
+  <tr>
+	 <td class="nav_toggle_left"><img src="<{$xoops_url}>/themes/<{$xoops_theme}>/images/toggle_left.gif" alt="Occulter la colonne de gauche" title="Occulter la colonne de gauche" onclick="toggleDisplay('leftcolumn','block','none')"></td>
+	 <td class="nav_scroll_text">T&eacute;l&eacute;chargements&nbsp;</td>
+	 <td class="nav_scroll_item"><marquee behavior="scroll" direction="left" width="100%" height="12" scrollamount="3" scrolldelay="60" onmouseover="this.stop()" onmouseout="this.start()"><script language="JavaScript" src="<{$xoops_url}>/backendjs_scroll_down.php" type="text/javascript"></script></marquee></td>
+	 <td class="nav_scroll_text">Articles&nbsp;</td>
+	 <td class="nav_scroll_item"><marquee behavior="scroll" direction="left" width="100%" height="12" scrollamount="3" scrolldelay="60" onmouseover="this.stop()" onmouseout="this.start()"><script language="JavaScript" src="<{$xoops_url}>/backendjs_scroll_tuto.php" type="text/javascript"></script></marquee></td>
+	 <td class="nav_search_text">Recherche&nbsp;</td>
+	 <td class="nav_search_item"><form action="<{$xoops_url}>/search.php" method="get"><input type="text" name="query" style="color:#707070" size="18" /><input type="hidden" name="action" value="results" />&nbsp;<input type="submit" style="color:#d0a700; border:1px solid; border-color: #707070 #000000 #000000 #707070;" value="Ok" /></form></td>
+	 <td class="nav_toggle_right"><img src="<{$xoops_url}>/themes/<{$xoops_theme}>/images/toggle_right.gif" alt="Occulter la colonne de droite" title="Occulter la colonne de droite" onclick="toggleDisplay('rightcolumn','block','none')"></td>
+  </tr>
+ </table>
+</div>
+<div class="spacer"></div>
+ <table id="body" cellspacing="0" width="99%">
+  <tr>
+	 <td id="leftcolumn" width="180px">
+		<!-- Start left blocks loop -->
+        <{foreach item=block from=$xoops_lblocks}>
+          <{include file="drclone_new/blocks/theme_blockleft.html"}>
+        <{/foreach}>
+       </td>
+       <!-- End left blocks loop -->
+	 <td id="centercolumn">
+<div id="content"><{$xoops_contents}></div>
+        <!-- Display center blocks if any -->
+        <{if $xoops_showcblock == 1}>
+        <table cellspacing="0" width="99%">
+          <tr>
+            <td id="centerCcolumn" colspan="2">
+             <!-- Start center-center blocks loop -->
+		<table cellpadding="0" cellspacing="10" style="margin:10">
+            <{foreach item=block from=$xoops_ccblocks}>
+		<tr>
+			<td class="block" style="background-image: url(<{$xoops_url}>/themes/<{$xoops_theme}>/images/cb_fbr_tex.gif)">
+              <{include file="drclone_new/blocks/theme_blockcenter_c.html"}>
+			</td>
+		</tr>
+            <{/foreach}>
+		</table>
+            <!-- End center-center blocks loop -->
+             </td>
+          </tr>
+          <tr>
+            <td id="centerLcolumn">
+             <!-- Start center-left blocks loop -->
+		<table cellpadding="0" cellspacing="10" style="margin:10">
+              <{foreach item=block from=$xoops_clblocks}>
+                <tr>
+			<td id="block" style="background-image: url(<{$xoops_url}>/themes/<{$xoops_theme}>/images/cb_fbr_tex.gif)">
+			<{include file="drclone_new/blocks/theme_blockcenter_l.html"}>
+			</td>
+			</tr>
+              <{/foreach}>
+		</table>
+            <!-- End center-left blocks loop -->
+             </td><td id="centerRcolumn">
+             <!-- Start center-right blocks loop -->
+			<table cellpadding="0" cellspacing="10" style="margin:10">
+              <{foreach item=block from=$xoops_crblocks}>
+			<tr>
+			<td id="block" style="background-image: url(<{$xoops_url}>/themes/<{$xoops_theme}>/images/cb_fbr_tex.gif)">
+                <{include file="drclone_new/blocks/theme_blockcenter_r.html"}>
+			</td>
+			</tr>
+              <{/foreach}>
+
+		</table>
+            <!-- End center-right blocks loop -->
+             </td>
+          </tr>
+        </table>
+        </div>
+        <{/if}>
+        <!-- End display center blocks -->
+
+	</td>
+
+<{if $xoops_showrblock == 1}>
+	<td id="rightcolumn" width="180px">
+	<!-- Start right blocks loop -->
+	<{foreach item=block from=$xoops_rblocks}>
+		<{include file="drclone_new/blocks/theme_blockright.html"}>
+	<{/foreach}>
+	<!-- End right blocks loop -->
+	</td>
+<{/if}>
+</tr>
+</table>
+<br />
+<div id="footer">
+<table>
+  <tr>
+    <td align="center" valign="middle">
+    <b>©2002 - 2005 - Dr. Clone &amp;  <a href="http://www.frxoops.org"><{$xoops_version}></a> , <a rel="license" href="http://www.creativecommons.org/licenses/by-nc-nd/2.1/fr/deed.es" target="_blank">Tous droits r&eacute;serv&eacute;s</a> - <a href="<{$xoops_url}>/backend.php" target="_blank" alt="XML" title="XML"><img src="<{$xoops_url}>/images/xml.gif" /></a></b>
+    <br />
+    <b>Th&egrave;me optimis&eacute; pour un affichage en 1024x768 pixels</b><br />
+  </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>
+<script language="JavaScript">
+<!--
+var SymRealOnLoad;
+var SymRealOnUnload;
+
+function SymOnUnload()
+{
+  window.open = SymWinOpen;
+  if(SymRealOnUnload != null)
+     SymRealOnUnload();
+}
+
+function SymOnLoad()
+{
+  if(SymRealOnLoad != null)
+     SymRealOnLoad();
+  window.open = SymRealWinOpen;
+  SymRealOnUnload = window.onunload;
+  window.onunload = SymOnUnload;
+}
+
+SymRealOnLoad = window.onload;
+window.onload = SymOnLoad;
+
+//-->
+</script>
+

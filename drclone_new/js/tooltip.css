@@ -1,0 +1,8 @@
+.label {
+    display: none;
+    position: absolute;
+    color: #6D6D6D;
+    background-color: #272727;
+  	border: 1px solid #D0A700;
+    padding: 5px;
+}
